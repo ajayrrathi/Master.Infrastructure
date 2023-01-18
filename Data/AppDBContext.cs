@@ -1,7 +1,7 @@
 ﻿using MasterProject.Core.Entities;
 using MasterProject.Infrastructure.Data.Config;
 using Microsoft.EntityFrameworkCore;
-using entity = MasterProject.Core.Entities;
+using Entity = MasterProject.Core.Entities;
 
 namespace MasterProject.Infrastructure.Data
 {
@@ -12,18 +12,18 @@ namespace MasterProject.Infrastructure.Data
 
         }
 
-        public DbSet<entity.Address> Addresses { get; set; }
-        public DbSet<entity.Attribute> Attributes { get; set; }
+        public DbSet<Entity.Address> Addresses { get; set; }
+        public DbSet<Entity.Attribute> Attributes { get; set; }
 
-        public DbSet<entity.Category> Categories { get; set; }
-        public DbSet<entity.Client> Clients { get; set; }
-        public DbSet<entity.Country> Countries { get; set; }
-        public DbSet<entity.PhoneNumber> PhoneNumbers { get; set; }
+        public DbSet<Entity.Category> Categories { get; set; }
+        public DbSet<Entity.Client> Clients { get; set; }
+        public DbSet<Entity.Country> Countries { get; set; }
+        public DbSet<Entity.PhoneNumber> PhoneNumbers { get; set; }
 
-        public DbSet<entity.Product> Products { get; set; }
-        public DbSet<entity.ProductAttribute> ProductAttributes { get; set; }
-        public DbSet<entity.ProductCatergories> ProductCatergories { get; set; }
-        public DbSet<entity.State> States { get; set; }
+        public DbSet<Entity.Product> Products { get; set; }
+        public DbSet<Entity.ProductAttribute> ProductAttributes { get; set; }
+        public DbSet<Entity.ProductCatergories> ProductCatergories { get; set; }
+        public DbSet<Entity.State> States { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,84 +31,84 @@ namespace MasterProject.Infrastructure.Data
 
             modelBuilder.ApplyConfiguration<Client>(new ClientConfiguration());
 
-            modelBuilder.Entity<entity.ProductAttribute>()
+            modelBuilder.Entity<Entity.ProductAttribute>()
                 .HasOne(c => c.Product)
                 .WithMany()
                 .OnDelete(DeleteBehavior.ClientNoAction);
 
-            modelBuilder.Entity<entity.ProductAttribute>()
+            modelBuilder.Entity<Entity.ProductAttribute>()
                 .HasOne(c => c.Attribute)
                 .WithMany()
                 .OnDelete(DeleteBehavior.ClientNoAction);
 
-            modelBuilder.Entity<entity.ProductCatergories>()
+            modelBuilder.Entity<Entity.ProductCatergories>()
                 .HasOne(c => c.CategoryProduct)
                 .WithMany()
                 .OnDelete(DeleteBehavior.ClientNoAction);
 
-            modelBuilder.Entity<entity.ProductCatergories>()
+            modelBuilder.Entity<Entity.ProductCatergories>()
                 .HasOne(c => c.Category)
                 .WithMany()
                 .OnDelete(DeleteBehavior.ClientNoAction);
 
 
-            modelBuilder.Entity<entity.Address>()
+            modelBuilder.Entity<Entity.Address>()
                      .Property(s => s.CreatedOn)
                      .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<entity.Address>()
+            modelBuilder.Entity<Entity.Address>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
 
 
 
-            modelBuilder.Entity<entity.Product>()
+            modelBuilder.Entity<Entity.Product>()
                      .Property(s => s.CreatedOn)
                      .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<entity.Product>()
+            modelBuilder.Entity<Entity.Product>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
 
 
-            modelBuilder.Entity<entity.Attribute>()
+            modelBuilder.Entity<Entity.Attribute>()
                      .Property(s => s.CreatedOn)
                      .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<entity.Attribute>()
+            modelBuilder.Entity<Entity.Attribute>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
 
 
-            modelBuilder.Entity<entity.ProductAttribute>()
+            modelBuilder.Entity<Entity.ProductAttribute>()
                     .Property(s => s.CreatedOn)
                     .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<entity.ProductAttribute>()
+            modelBuilder.Entity<Entity.ProductAttribute>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
 
-            modelBuilder.Entity<entity.Category>()
+            modelBuilder.Entity<Entity.Category>()
                 .Property(s => s.CreatedOn)
                 .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<entity.Category>()
+            modelBuilder.Entity<Entity.Category>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
 
-            modelBuilder.Entity<entity.Country>()
+            modelBuilder.Entity<Entity.Country>()
                     .Property(s => s.CreatedOn)
                     .HasDefaultValueSql("GETDATE()");
-            modelBuilder.Entity<entity.Country>()
+            modelBuilder.Entity<Entity.Country>()
                     .Property(s => s.CreatedOn)
                     .HasDefaultValueSql("GETDATE()");
 
-            modelBuilder.Entity<entity.ProductCatergories>()
+            modelBuilder.Entity<Entity.ProductCatergories>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
 
 
-            modelBuilder.Entity<entity.ProductCatergories>()
+            modelBuilder.Entity<Entity.ProductCatergories>()
                      .Property(s => s.Id)
                      .HasDefaultValueSql("NEWID()");
             //modelBuilder.Entity<entity.ProductCatergories>()

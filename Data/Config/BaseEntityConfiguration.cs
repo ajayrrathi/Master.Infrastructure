@@ -9,7 +9,7 @@ namespace MasterProject.Infrastructure.Data.Config
     /// For applying these configuration, we should create entity specific configuration. 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseEntityConfiguration<T> : IEntityTypeConfiguration<T> where T : BaseEntity
+    public abstract class BaseEntityConfiguration<T> : IEntityTypeConfiguration<T> where T : BaseEntityWithLogs
     {
         /// <summary>
         /// Define the configuration that should be applied. 

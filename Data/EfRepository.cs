@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace MasterProject.Infrastructure
 {
-    public class EfRepository : IRepository
+    public class EfRepository : MasterProject.SharedKernel.Repository.Repository
     {
         private readonly AppDBContext _dbContext;
-        public EfRepository(AppDBContext dbContext)
+        public EfRepository(AppDBContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }
+        /*
         public async Task<T> AddAsync<T>(T entity) where T : BaseEntity, IAggregate
         {
             await _dbContext.Set<T>().AddAsync(entity);
@@ -71,6 +72,6 @@ namespace MasterProject.Infrastructure
         private IQueryable<T> ApplySpecification<T>(ISpecification<T> specification) where T : BaseEntity
         {
             return _dbContext.Set<T>().Specify<T>(specification);
-        }
+        }*/
     }
 }

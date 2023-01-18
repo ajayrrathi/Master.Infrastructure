@@ -1,20 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Master.Core\MasterProject.Core.csproj" />
-    <ProjectReference Include="..\Master.SharedKernel\MasterProject.SharedKernel.csproj" />
+    <None Remove="MasterProject.Core" />
+    <None Remove="MasterProject.SharedKernel" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Master.Core\MasterProject.Core.csproj" />
+    <ProjectReference Include="..\..\SharedKernel\Master.SharedKernel\MasterProject.SharedKernel.csproj" />
+  </ItemGroup>
 </Project>
