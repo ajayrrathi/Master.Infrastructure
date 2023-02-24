@@ -12,10 +12,8 @@ namespace MasterProject.Infrastructure
 {
     public class EfRepository : MasterProject.SharedKernel.Repository.Repository
     {
-        private readonly AppDBContext _dbContext;
-        public EfRepository(AppDBContext dbContext) : base(dbContext)
+        public EfRepository(IDbContextFactory<AppDBContext> dbContext) : base(dbContext.CreateDbContext())
         {
-            _dbContext = dbContext;
         }
         /*
         public async Task<T> AddAsync<T>(T entity) where T : BaseEntity, IAggregate

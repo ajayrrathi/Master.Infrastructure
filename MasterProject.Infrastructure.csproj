@@ -17,7 +17,7 @@
     <None Remove="MasterProject.SharedKernel" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Master.Core\MasterProject.Core.csproj" />
     <ProjectReference Include="..\..\SharedKernel\Master.SharedKernel\MasterProject.SharedKernel.csproj" />
+    <ProjectReference Include="..\..\Core\Master.Core\MasterProject.Core.csproj" />
   </ItemGroup>
 </Project>
